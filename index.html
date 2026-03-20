@@ -1,50 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Student Feedback Form</title>
+    <title>Student Feedback</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
 
+<div class="toggle">
+    <button onclick="toggleMode()">🌙</button>
+</div>
+
 <div class="container">
-    <h2>Student Feedback Form</h2>
-
     <form id="feedbackForm" onsubmit="return validateForm()">
+        <h2>✨ Student Feedback</h2>
 
-        <label>Student Name:</label>
-        <input type="text" id="name">
+        <input type="text" id="name" placeholder="👤 Your Name">
+        <input type="text" id="email" placeholder="📧 Email">
+        <input type="text" id="mobile" placeholder="📱 Mobile Number">
 
-        <label>Email ID:</label>
-        <input type="text" id="email">
-
-        <label>Mobile Number:</label>
-        <input type="text" id="mobile">
-
-        <label>Department:</label>
         <select id="department">
-            <option value="">Select</option>
+            <option value="">🎓 Select Department</option>
             <option>Computer</option>
             <option>IT</option>
             <option>Mechanical</option>
             <option>Civil</option>
         </select>
 
-        <label>Gender:</label>
-        <input type="radio" name="gender" value="Male"> Male
-        <input type="radio" name="gender" value="Female"> Female
+        <div class="gender">
+            <label><input type="radio" name="gender" value="Male"> Male</label>
+            <label><input type="radio" name="gender" value="Female"> Female</label>
+        </div>
 
-        <label>Feedback Comments:</label>
-        <textarea id="feedback"></textarea>
+        <textarea id="feedback" placeholder="💬 Write feedback..."></textarea>
 
-        <br><br>
+        <p id="error"></p>
+
         <button type="submit">Submit</button>
-        <button type="reset">Reset</button>
+        <button type="reset" class="reset">Reset</button>
 
     </form>
+</div>
 
-    <p id="error"></p>
+<!-- Success Popup -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <h3>✅ Submitted Successfully!</h3>
+        <button onclick="closePopup()">OK</button>
+    </div>
 </div>
 
 </body>
