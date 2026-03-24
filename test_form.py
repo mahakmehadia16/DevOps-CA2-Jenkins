@@ -12,7 +12,7 @@ driver.get("file:///C:/Users/mahak/OneDrive/Desktop/DevOps/CA2 jenkins/index.htm
 
 wait = WebDriverWait(driver, 10)
 
-print("✅ Test 1: Page opened successfully")
+print("Test 1: Page opened successfully")
 time.sleep(2)
 
 # ============================
@@ -42,11 +42,11 @@ driver.find_element(By.ID, "feedback").send_keys(
 time.sleep(1)
 
 driver.find_element(By.XPATH, "//button[@type='submit']").click()
-print("✅ Test 2: Valid submission done")
+print("Test 2: Valid submission done")
 
 time.sleep(2)
 
-# CLOSE POPUP (IMPORTANT)
+# CLOSE POPUP
 wait.until(EC.element_to_be_clickable((By.XPATH, "//button[text()='OK']"))).click()
 time.sleep(1)
 
@@ -61,7 +61,7 @@ driver.find_element(By.XPATH, "//button[@type='submit']").click()
 time.sleep(1)
 
 error = driver.find_element(By.ID, "error").text
-print("⚠️ Test 3: Empty fields error ->", error)
+print("Test 3: Empty fields error ->", error)
 time.sleep(2)
 
 # ============================
@@ -92,7 +92,7 @@ driver.find_element(By.XPATH, "//button[@type='submit']").click()
 time.sleep(1)
 
 error = driver.find_element(By.ID, "error").text
-print("⚠️ Test 4: Invalid email error ->", error)
+print("Test 4: Invalid email error ->", error)
 time.sleep(2)
 
 driver.find_element(By.XPATH, "//button[@type='reset']").click()
@@ -108,7 +108,7 @@ time.sleep(1)
 driver.find_element(By.ID, "email").send_keys("mahak@gmail.com")
 time.sleep(1)
 
-driver.find_element(By.ID, "mobile").send_keys("12345")  # invalid
+driver.find_element(By.ID, "mobile").send_keys("12345")
 time.sleep(1)
 
 Select(driver.find_element(By.ID, "department")).select_by_visible_text("Civil")
@@ -126,7 +126,7 @@ driver.find_element(By.XPATH, "//button[@type='submit']").click()
 time.sleep(1)
 
 error = driver.find_element(By.ID, "error").text
-print("⚠️ Test 5: Invalid mobile error ->", error)
+print("Test 5: Invalid mobile error ->", error)
 time.sleep(2)
 
 driver.find_element(By.XPATH, "//button[@type='reset']").click()
@@ -137,7 +137,7 @@ time.sleep(1)
 # ============================
 
 Select(driver.find_element(By.ID, "department")).select_by_visible_text("Mechanical")
-print("✅ Test 6: Dropdown working")
+print("Test 6: Dropdown working")
 time.sleep(2)
 
 driver.find_element(By.XPATH, "//button[@type='reset']").click()
@@ -156,9 +156,9 @@ time.sleep(1)
 name_value = driver.find_element(By.ID, "name").get_attribute("value")
 
 if name_value == "":
-    print("✅ Test 7: Reset button working")
+    print("Test 7: Reset button working")
 else:
-    print("❌ Test 7: Reset failed")
+    print("Test 7: Reset failed")
 
 time.sleep(2)
 
